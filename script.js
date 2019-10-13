@@ -1,4 +1,5 @@
 const base_url = 'https://api.github.com/search/issues?q=state%3Aopen+author%3A';
+const ENTER_KEY = 13;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
 
@@ -25,7 +26,7 @@ document.getElementById("search").addEventListener("click", function(){
 
 		imageElem.setAttribute('src', userAvatar);
 		imageElem.setAttribute('class', 'avatar');
-		
+
 		user_info.appendChild(imageElem);
 		user_info.appendChild(spanElem);
 		
@@ -51,4 +52,11 @@ document.getElementById("search").addEventListener("click", function(){
 
 	request.send();
 
+});
+
+document.getElementById("userName").addEventListener("keyup", function(event) {
+  if (event.keyCode === ENTER_KEY) {
+    event.preventDefault();
+    document.getElementById("search").click();
+  }
 });
