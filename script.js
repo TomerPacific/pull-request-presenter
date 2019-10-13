@@ -1,5 +1,6 @@
 const base_url = 'https://api.github.com/search/issues?q=state%3Aopen+author%3A';
 const pull_request_list = document.getElementById('pull-requests');
+const user_info = document.getElementById('user-info');
 
 document.getElementById("search").addEventListener("click", function(){
 	let userName = document.getElementById('userName').value;
@@ -15,14 +16,29 @@ document.getElementById("search").addEventListener("click", function(){
 		}
 		let json = JSON.parse(responseText);
 		let pullRequests = json.items;
+
+		let userAvatar = pullRequests[0].user.avatar_url;
+		let imageElem = document.createElement('IMG');
+		let spanElem = document.createElement('span');
+
+		spanElem.innerHTML = userName;
+
+		imageElem.setAttribute('src', userAvatar);
+		imageElem.setAttribute('class', 'avatar');
+		
+		user_info.appendChild(imageElem);
+		user_info.appendChild(spanElem);
+		
+
 		for (let index = 0; index < pullRequests.length; index++) {
 			let pullRequest = pullRequests[index];
 			let prUrl = pullRequest.url;
 			let prRepo = pullRequest.repository_url;
 			let prTitle = pullRequest.title;
 			let prBody = pullRequest.body;
-			let userAvatar = pullRequest.user.avatar_url;
+			
 			let liElem = document.createElement('li');
+			
 			liElem.innerHTML = "Url " + prUrl + " | repo " + prRepo + " | title " + prTitle + " | body " + prBody;
 			pull_request_list.appendChild(liElem);
 		}

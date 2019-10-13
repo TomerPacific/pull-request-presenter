@@ -2,6 +2,17 @@
 	text-align: center;
 }
 
+#pull-request-data {
+	margin-top: 2%;
+}
+
 #pull-requests {
 	list-style: none;
+	margin-top: 2%;
+}
+
+.avatar {
+	width: 75px;
+	height: 75px;
+	border: 2px solid black;
 }
