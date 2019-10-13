@@ -1,4 +1,5 @@
-const base_url = 'https://api.github.com/search/issues?q=state%3Aopen+author%3A';
+const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2019-10-01+created%3A%3E%3D2019-10-31+author%3A';
+
 const ENTER_KEY = 13;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
@@ -12,14 +13,15 @@ document.getElementById("search").addEventListener("click", function(){
 
 	request.onload = function() {
 		var responseText = request.responseText;
-		if (!responseText || responseText.total_count === 0) {
+		let json = JSON.parse(responseText);
+
+		if (!responseText || json.total_count === 0) {
 			return;
 		}
-		let json = JSON.parse(responseText);
+		
 		let pullRequests = json.items;
 
 		setupUserDetails(userName, pullRequests[0]);
-		
 
 		for (let index = 0; index < pullRequests.length; index++) {
 			let pullRequest = pullRequests[index];
@@ -29,9 +31,12 @@ document.getElementById("search").addEventListener("click", function(){
 			let prBody = pullRequest.body;
 			
 			let liElem = document.createElement('li');
-
+			let anchroElem = document.createElement('a');
+			anchroElem.setAttribute('href', prUrl);
+			anchroElem.innerHTML = prTitle;
+			liElem.appendChild(anchroElem);
 			
-			liElem.innerHTML = "Url " + prUrl + " | repo " + prRepo + " | title " + prTitle + " | body " + prBody;
+			//liElem.innerHTML = "Url " + prUrl + " | repo " + prRepo + " | title " + prTitle + " | body " + prBody;
 			pull_request_list.appendChild(liElem);
 		}
 

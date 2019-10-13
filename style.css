@@ -11,6 +11,10 @@
 	margin-top: 2%;
 }
 
+#pull-requests li {
+	margin-bottom: 1%;
+}
+
 .avatar {
 	width: 75px;
 	height: 75px;
