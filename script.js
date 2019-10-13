@@ -18,25 +18,7 @@ document.getElementById("search").addEventListener("click", function(){
 		let json = JSON.parse(responseText);
 		let pullRequests = json.items;
 
-		let userAvatar = pullRequests[0].user.avatar_url;
-		let imageElem = document.createElement('IMG');
-		let figCaptionElem = document.createElement("FIGCAPTION");
-		let figureElem = document.createElement("FIG");
-		let anchorElem = document.createElement('a');
-		anchorElem.setAttribute('href', pullRequests[0].user.html_url);
-		anchorElem.innerHTML =  "@"+userName;
-		figCaptionElem.appendChild(anchorElem);
-
-		imageElem.setAttribute('src', userAvatar);
-		imageElem.setAttribute('class', 'avatar');
-		imageElem.setAttribute('alt', 'user-avatar');
-		imageElem.setAttribute('title', userName + "'s avatar");
-
-
-		figureElem.appendChild(imageElem);
-		figureElem.appendChild(figCaptionElem);
-
-		user_info.appendChild(figureElem);
+		setupUserDetails(userName, pullRequests[0]);
 		
 
 		for (let index = 0; index < pullRequests.length; index++) {
@@ -47,6 +29,7 @@ document.getElementById("search").addEventListener("click", function(){
 			let prBody = pullRequest.body;
 			
 			let liElem = document.createElement('li');
+
 			
 			liElem.innerHTML = "Url " + prUrl + " | repo " + prRepo + " | title " + prTitle + " | body " + prBody;
 			pull_request_list.appendChild(liElem);
@@ -68,3 +51,28 @@ document.getElementById("userName").addEventListener("keyup", function(event) {
     document.getElementById("search").click();
   }
 });
+
+
+function setupUserDetails(userName, details) {
+	let userAvatar = details.user.avatar_url;
+	let imageElem = document.createElement('IMG');
+	let figCaptionElem = document.createElement("FIGCAPTION");
+	let figureElem = document.createElement("FIG");
+	let anchorElem = document.createElement('a');
+
+	anchorElem.setAttribute('href', details.user.html_url);
+	anchorElem.setAttribute('target', "_blank");
+	anchorElem.innerHTML =  "@" + userName;
+	figCaptionElem.appendChild(anchorElem);
+
+	imageElem.setAttribute('src', userAvatar);
+	imageElem.setAttribute('class', 'avatar');
+	imageElem.setAttribute('alt', 'user-avatar');
+	imageElem.setAttribute('title', userName + "'s avatar");
+
+
+	figureElem.appendChild(imageElem);
+	figureElem.appendChild(figCaptionElem);
+
+	user_info.appendChild(figureElem);
+}
