@@ -20,15 +20,23 @@ document.getElementById("search").addEventListener("click", function(){
 
 		let userAvatar = pullRequests[0].user.avatar_url;
 		let imageElem = document.createElement('IMG');
-		let spanElem = document.createElement('span');
-
-		spanElem.innerHTML = userName;
+		let figCaptionElem = document.createElement("FIGCAPTION");
+		let figureElem = document.createElement("FIG");
+		let anchorElem = document.createElement('a');
+		anchorElem.setAttribute('href', pullRequests[0].user.html_url);
+		anchorElem.innerHTML =  "@"+userName;
+		figCaptionElem.appendChild(anchorElem);
 
 		imageElem.setAttribute('src', userAvatar);
 		imageElem.setAttribute('class', 'avatar');
+		imageElem.setAttribute('alt', 'user-avatar');
+		imageElem.setAttribute('title', userName + "'s avatar");
 
-		user_info.appendChild(imageElem);
-		user_info.appendChild(spanElem);
+
+		figureElem.appendChild(imageElem);
+		figureElem.appendChild(figCaptionElem);
+
+		user_info.appendChild(figureElem);
 		
 
 		for (let index = 0; index < pullRequests.length; index++) {
