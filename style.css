@@ -1,5 +1,6 @@
 * {
 	text-align: center;
+	background-color: #2D283E;
 }
 
 #pull-request-data {
@@ -15,6 +16,15 @@
 	margin-bottom: 1%;
 }
 
+#pull-requests li a {
+	color: #86B3D1;
+	text-decoration: none;
+}
+
+#pull-requests li a:hover {
+	color: #E64398;
+}
+
 .avatar {
 	width: 75px;
 	height: 75px;
@@ -23,4 +33,13 @@
 
 #title {
 	display: none;
+	color: #86B3D1;;
+}
+
+#search, #user-info a {
+	color: #86B3D1;
+}
+
+#userName {
+	color: white;
 }
