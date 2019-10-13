@@ -14,8 +14,10 @@ document.getElementById("search").addEventListener("click", function(){
 	request.onload = function() {
 		var responseText = request.responseText;
 		let json = JSON.parse(responseText);
-
+		user_info.innerHTML = "";
+		
 		if (!responseText || json.total_count === 0) {
+			user_info.innerHTML = "There is no information for " + userName;
 			return;
 		}
 		
