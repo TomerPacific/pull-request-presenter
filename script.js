@@ -5,6 +5,7 @@ const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
 
 document.getElementById("search").addEventListener("click", function(){
+	document.getElementById('title').style.display = "none";
 	let userName = document.getElementById('userName').value;
 	document.getElementById('userName').value = "";
 	let request = new XMLHttpRequest();
@@ -12,15 +13,18 @@ document.getElementById("search").addEventListener("click", function(){
 	request.open('GET', url, true);
 
 	request.onload = function() {
+		user_info.innerHTML = "";
+		pull_request_list.innerHTML = "";
 		var responseText = request.responseText;
 		let json = JSON.parse(responseText);
-		user_info.innerHTML = "";
 		
+
 		if (!responseText || json.total_count === 0) {
 			user_info.innerHTML = "There is no information for " + userName;
 			return;
 		}
 		
+		document.getElementById('title').style.display = "block";
 		let pullRequests = json.items;
 
 		setupUserDetails(userName, pullRequests[0]);

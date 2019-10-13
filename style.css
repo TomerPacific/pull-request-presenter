@@ -20,3 +20,7 @@
 	height: 75px;
 	border: 2px solid black;
 }
+
+#title {
+	display: none;
+}
