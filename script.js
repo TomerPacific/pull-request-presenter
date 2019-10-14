@@ -1,6 +1,7 @@
 const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2019-10-01+created%3A%3E%3D2019-10-31+author%3A';
 
 const ENTER_KEY = 13;
+const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
 
@@ -42,10 +43,16 @@ document.getElementById("search").addEventListener("click", function(){
 			anchroElem.innerHTML = prTitle;
 			liElem.appendChild(anchroElem);
 			
-			//liElem.innerHTML = "Url " + prUrl + " | repo " + prRepo + " | title " + prTitle + " | body " + prBody;
 			pull_request_list.appendChild(liElem);
 		}
 
+		const progressDiv = document.getElementById('progress');
+		let progressHeader = document.createElement('h3');
+		progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
+		if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
+			progressHeader.innerHTML += " Way To Go!";
+		}
+		progressDiv.appendChild(progressHeader);
 	}
 
 	request.onerror = function() {
