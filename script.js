@@ -32,7 +32,7 @@ document.getElementById("search").addEventListener("click", function(){
 
 		for (let index = 0; index < pullRequests.length; index++) {
 			let pullRequest = pullRequests[index];
-			let prUrl = pullRequest.url;
+			let prUrl = pullRequest.html_url;
 			let prRepo = pullRequest.repository_url;
 			let prTitle = pullRequest.title;
 			let prBody = pullRequest.body;
