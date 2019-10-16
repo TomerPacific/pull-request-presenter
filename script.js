@@ -4,6 +4,7 @@ const ENTER_KEY = 13;
 const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
+const progressDiv = document.getElementById('progress');
 
 document.getElementById("search").addEventListener("click", function(){
 	document.getElementById('title').style.display = "none";
@@ -16,6 +17,7 @@ document.getElementById("search").addEventListener("click", function(){
 	request.onload = function() {
 		user_info.innerHTML = "";
 		pull_request_list.innerHTML = "";
+		progressDiv.innerHTML = "";
 		var responseText = request.responseText;
 		let json = JSON.parse(responseText);
 		
@@ -46,7 +48,6 @@ document.getElementById("search").addEventListener("click", function(){
 			pull_request_list.appendChild(liElem);
 		}
 
-		const progressDiv = document.getElementById('progress');
 		let progressHeader = document.createElement('h3');
 		progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
 		if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
