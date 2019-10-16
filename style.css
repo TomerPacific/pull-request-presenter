@@ -22,12 +22,12 @@
 }
 
 #pull-requests li a, #user-info a {
-	color: #86B3D1;
+	color: #92EAFF;
 	text-decoration: none;
 }
 
 #pull-requests li a:hover, #user-info a:hover {
-	color: #E64398;
+	color: #FF00AA;
 }
 
 .avatar {
@@ -39,11 +39,15 @@
 
 #title {
 	display: none;
-	color: #86B3D1;;
+	color: #92EAFF;
 }
 
-#search, #progress, #user-info {
-	color: #86B3D1;
+#search, #user-info {
+	color: #92EAFF;
+}
+
+#progress {
+	color: #FFF922;
 }
 
 #search:hover {
