@@ -50,10 +50,10 @@
 	color: #FFF922;
 }
 
-#search:hover {
+#search:hover, #userName {
 	color: white;
 }
 
-#userName {
-	color: white;
+#top-image {
+	margin-bottom: 2%;
 }
