@@ -52,6 +52,10 @@ document.getElementById("search").addEventListener("click", function(){
 		progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
 		if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
 			progressHeader.innerHTML += " Way To Go!";
+			let parrotBadgeImg = document.createElement('IMG');
+			parrotBadgeImg.setAttribute('src', './assets/parrot-badge.png');
+			parrotBadgeImg.setAttribute('id', 'parrot_badge');
+			progressDiv.appendChild(parrotBadgeImg);
 		}
 		progressDiv.appendChild(progressHeader);
 	}
