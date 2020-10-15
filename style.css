@@ -50,11 +50,7 @@
 	color: #92EAFF;
 }
 
-#progress {
-	color: #FFF922;
-}
-
-#search:hover, #userName {
+#search:hover, #userName, #progress {
 	color: white;
 }
 
