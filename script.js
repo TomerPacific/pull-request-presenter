@@ -9,6 +9,9 @@ const progressDiv = document.getElementById('progress');
 document.getElementById("search").addEventListener("click", function(){
 	document.getElementById('title').style.display = "none";
 	let userName = document.getElementById('userName').value;
+
+	if (userName.length === 0) return;
+
 	document.getElementById('userName').value = "";
 	let request = new XMLHttpRequest();
 	let url = base_url + userName +"+type%3Apr";
