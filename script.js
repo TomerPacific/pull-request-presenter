@@ -5,12 +5,17 @@ const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
 const progressDiv = document.getElementById('progress');
+const loader = document.getElementsByClassName('loader');
+
+loader[0].style.display = "none";
 
 document.getElementById("search").addEventListener("click", function(){
 	document.getElementById('title').style.display = "none";
 	let userName = document.getElementById('userName').value;
 
 	if (userName.length === 0) return;
+
+	loader[0].style.display = "block";
 
 	document.getElementById('userName').value = "";
 	let request = new XMLHttpRequest();
@@ -24,6 +29,7 @@ document.getElementById("search").addEventListener("click", function(){
 		var responseText = request.responseText;
 		let json = JSON.parse(responseText);
 		
+		loader[0].style.display = "none";
 
 		if (!responseText || json.total_count === 0) {
 			user_info.innerHTML = "There is no information for " + userName;
