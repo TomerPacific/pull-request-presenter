@@ -70,16 +70,7 @@ function fetchUserDetails() {
 			pull_request_list.appendChild(liElem);
 		}
 
-		let progressHeader = document.createElement('h3');
-		progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
-		if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
-			progressHeader.innerHTML += " Way To Go!";
-			let parrotBadgeImg = document.createElement('IMG');
-			parrotBadgeImg.setAttribute('src', './assets/parrot-badge.png');
-			parrotBadgeImg.setAttribute('id', 'parrot_badge');
-			progressDiv.appendChild(parrotBadgeImg);
-		}
-		progressDiv.appendChild(progressHeader);
+		setupPullRequestProgressData(pullRequests);
 	}
 
 	request.onerror = function() {
@@ -96,6 +87,20 @@ document.getElementById("userName").addEventListener("keyup", function(event) {
     document.getElementById("search").click();
   }
 });
+
+function setupPullRequestProgressData(pullRequests) {
+	let progressHeader = document.createElement('h3');
+	progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
+	if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
+		progressHeader.innerHTML += " Way To Go!";
+		let parrotBadgeImg = document.createElement('IMG');
+		parrotBadgeImg.setAttribute('src', './assets/parrot-badge.png');
+		parrotBadgeImg.setAttribute('id', 'parrot_badge');
+		progressDiv.appendChild(parrotBadgeImg);
+	}
+	
+	progressDiv.appendChild(progressHeader);
+}
 
 
 function setupUserDetails(userName, details) {
