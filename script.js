@@ -20,12 +20,12 @@ function setupSearchButtonListener() {
 		loader[0].style.display = "block";
 	
 		document.getElementById('userName').value = "";
-		fetchUserDetails();
+		fetchUserDetails(userName);
 	});	
 
 	document.getElementById("userName").addEventListener("keyup", function(event) {
 		let keyCode;
-		
+
 		if (event.key !== undefined) {
 			keyCode = event.key;
 		  } else if (event.keyIdentifier !== undefined) {
@@ -41,7 +41,7 @@ function setupSearchButtonListener() {
 	  });
 }
 
-function fetchUserDetails() {
+function fetchUserDetails(userName) {
 	let request = new XMLHttpRequest();
 	let url = base_url + userName +"+type%3Apr";
 	
