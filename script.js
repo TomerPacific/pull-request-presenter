@@ -22,6 +22,23 @@ function setupSearchButtonListener() {
 		document.getElementById('userName').value = "";
 		fetchUserDetails();
 	});	
+
+	document.getElementById("userName").addEventListener("keyup", function(event) {
+		let keyCode;
+		
+		if (event.key !== undefined) {
+			keyCode = event.key;
+		  } else if (event.keyIdentifier !== undefined) {
+			keyCode = event.keyIdentifier;
+		  } else if (event.keyCode !== undefined) {
+			keyCode = event.keyCode;
+		  }
+
+		if (keyCode === ENTER_KEY) {
+		  event.preventDefault();
+		  document.getElementById("search").click();
+		}
+	  });
 }
 
 function fetchUserDetails() {
@@ -80,14 +97,6 @@ function fetchUserDetails() {
 	request.send();
 }
 
-
-document.getElementById("userName").addEventListener("keyup", function(event) {
-  if (event.keyCode === ENTER_KEY) {
-    event.preventDefault();
-    document.getElementById("search").click();
-  }
-});
-
 function setupPullRequestProgressData(pullRequests) {
 	let progressHeader = document.createElement('h3');
 	progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
@@ -98,7 +107,7 @@ function setupPullRequestProgressData(pullRequests) {
 		parrotBadgeImg.setAttribute('id', 'parrot_badge');
 		progressDiv.appendChild(parrotBadgeImg);
 	}
-	
+
 	progressDiv.appendChild(progressHeader);
 }
 
