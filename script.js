@@ -9,17 +9,25 @@ const loader = document.getElementsByClassName('loader');
 
 loader[0].style.display = "none";
 
-document.getElementById("search").addEventListener("click", function(){
-	document.getElementById('title').style.display = "none";
-	let userName = document.getElementById('userName').value;
+function setupSearchButtonListener() {
+	document.getElementById("search").addEventListener("click", function(){
+		document.getElementById('title').style.display = "none";
+		let userName = document.getElementById('userName').value;
+	
+		if (userName.length === 0) return;
+	
+		//show loader
+		loader[0].style.display = "block";
+	
+		document.getElementById('userName').value = "";
+		fetchUserDetails();
+	});	
+}
 
-	if (userName.length === 0) return;
-
-	loader[0].style.display = "block";
-
-	document.getElementById('userName').value = "";
+function fetchUserDetails() {
 	let request = new XMLHttpRequest();
 	let url = base_url + userName +"+type%3Apr";
+	
 	request.open('GET', url, true);
 
 	request.onload = function() {
@@ -74,8 +82,8 @@ document.getElementById("search").addEventListener("click", function(){
 	};
 
 	request.send();
+}
 
-});
 
 document.getElementById("userName").addEventListener("keyup", function(event) {
   if (event.keyCode === ENTER_KEY) {
@@ -108,3 +116,5 @@ function setupUserDetails(userName, details) {
 
 	user_info.appendChild(figureElem);
 }
+
+setupSearchButtonListener();
