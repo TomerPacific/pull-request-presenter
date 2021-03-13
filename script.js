@@ -43,6 +43,11 @@ function fetchUserDetails() {
 			user_info.innerHTML = "There is no information for " + userName;
 			return;
 		}
+
+		if (json.hasOwnProperty('errors')) {
+			presentErrorMessage(json.errors[0]);
+			return;
+		}
 		
 		document.getElementById('title').style.display = "block";
 		let pullRequests = json.items;
@@ -115,6 +120,10 @@ function setupUserDetails(userName, details) {
 	figureElem.appendChild(figCaptionElem);
 
 	user_info.appendChild(figureElem);
+}
+
+function presentErrorMessage(error) {
+	user_info.innerHTML = "An error has occurred " + error.message;
 }
 
 setupSearchButtonListener();
