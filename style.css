@@ -1,15 +1,15 @@
 * {
 	text-align: center;
-	background-color: #001133;
+	background-color: #f4f0e1;
 }
 
 #userName:focus {
     outline: none !important;
-    border:1px solid white;
+    border:1px solid #91A88C;
 }
 
 #username::placeholder {
-	color: white;
+	color: #2B3531;
 }
 
 #pull-request-data {
@@ -27,32 +27,32 @@
 }
 
 #pull-requests li a, #user-info a {
-	color: #92EAFF;
+	color: #B53A25;
 	text-decoration: none;
 }
 
 #pull-requests li a:hover, #user-info a:hover {
-	color: #FF00AA;
+	color: #677662;
 }
 
 .avatar {
 	width: 100px;
 	height: 100px;
-	border: 2px solid white;
+	border: 2px solid #B53A25;
 	border-radius: 50%;
 }
 
 #title {
 	display: none;
-	color: #92EAFF;
+	color: #B53A25;
 }
 
 #search, #user-info {
-	color: #92EAFF;
+	color: #2B3531;
 }
 
 #search:hover, #userName, #progress {
-	color: white;
+	color: #91A88C;
 }
 
 #top-image {
@@ -69,7 +69,7 @@
 /* Loader */
 
 .loader {
-	border: 16px solid #f3f3f3; 
+	border: 16px solid white; 
 	border-top: 16px solid #3498db;
 	border-radius: 50%;
 	width: 60px;

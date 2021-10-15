@@ -1,4 +1,4 @@
-const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2020-10-01+created%3A%3E%3D2020-10-31+author%3A';
+const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2021-10-01+created%3A%3E%3D2021-10-31+author%3A';
 
 const ENTER_KEY = 13;
 const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
