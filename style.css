@@ -1,15 +1,15 @@
 * {
 	text-align: center;
-	background-color: #001133;
+	background-color: #f4f0e1;
 }
 
 #userName:focus {
     outline: none !important;
-    border:1px solid white;
+    border:1px solid #91A88C;
 }
 
 #username::placeholder {
-	color: white;
+	color: #2B3531;
 }
 
 #pull-request-data {
@@ -48,11 +48,11 @@
 }
 
 #search, #user-info {
-	color: #92EAFF;
+	color: #2B3531;
 }
 
 #search:hover, #userName, #progress {
-	color: white;
+	color: #91A88C;
 }
 
 #top-image {
