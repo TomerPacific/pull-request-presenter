@@ -1,15 +1,22 @@
+:root {
+	--primary_first_color: #f4f0e1;
+	--primary_link_color: #B53A25;
+	--primary_secondary_color: #91A88C;
+	--black: #2B3531;
+}
+
 * {
 	text-align: center;
-	background-color: #f4f0e1;
+	background-color: var(--primary_first_color);
 }
 
 #userName:focus {
     outline: none !important;
-    border:1px solid #91A88C;
+    border:1px solid var(--primary_secondary_color);
 }
 
 #username::placeholder {
-	color: #2B3531;
+	color: var(--black);
 }
 
 #pull-request-data {
@@ -27,7 +34,7 @@
 }
 
 #pull-requests li a, #user-info a {
-	color: #B53A25;
+	color: var(--primary_link_color);
 	text-decoration: none;
 }
 
@@ -38,21 +45,21 @@
 .avatar {
 	width: 100px;
 	height: 100px;
-	border: 2px solid #B53A25;
+	border: 2px solid var(--primary_link_color);
 	border-radius: 50%;
 }
 
 #title {
 	display: none;
-	color: #B53A25;
+	color: var(--primary_link_color);
 }
 
 #search, #user-info {
-	color: #2B3531;
+	color: var(--black);
 }
 
 #search:hover, #userName, #progress {
-	color: #91A88C;
+	color: var(--primary_secondary_color);
 }
 
 #top-image {
