@@ -1,6 +1,6 @@
 const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2021-10-01+created%3A%3E%3D2021-10-31+author%3A';
 
-const ENTER_KEY = 13;
+const ENTER_KEY = "Enter";
 const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
