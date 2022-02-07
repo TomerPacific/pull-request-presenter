@@ -68,12 +68,19 @@ function fetchUserDetails(userName) {
 		
 		document.getElementById('title').style.display = "block";
 		let pullRequests = json.items;
-
+		var amountOfPRForNonOwnerRepositories = 0;
 		setupUserDetails(userName, pullRequests[0]);
 
 		for (let index = 0; index < pullRequests.length; index++) {
 
 			let pullRequest = pullRequests[index];
+
+			if (pullRequest["author_association"] == "OWNER") {
+				continue;
+			}
+			
+			amountOfPRForNonOwnerRepositories++;
+
 			let prUrl = pullRequest.html_url;
 			let prTitle = pullRequest.title;
 			
@@ -86,7 +93,7 @@ function fetchUserDetails(userName) {
 			pull_request_list.appendChild(liElem);
 		}
 
-		setupPullRequestProgressData(pullRequests);
+		setupPullRequestProgressData(amountOfPRForNonOwnerRepositories);
 	}
 
 	request.onerror = function() {
@@ -96,10 +103,10 @@ function fetchUserDetails(userName) {
 	request.send();
 }
 
-function setupPullRequestProgressData(pullRequests) {
+function setupPullRequestProgressData(amountOfPRForNonOwnerRepositories) {
 	let progressHeader = document.createElement('h3');
-	progressHeader.innerHTML = "You have made " + pullRequests.length + " PRs!";
-	if (pullRequests.length >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
+	progressHeader.innerHTML = "You have made " + amountOfPRForNonOwnerRepositories + " PRs!";
+	if (amountOfPRForNonOwnerRepositories >= REQUIRED_AMOUNT_OF_PULL_REQUESTS) {
 		progressHeader.innerHTML += " Way To Go!";
 		let parrotBadgeImg = document.createElement('IMG');
 		parrotBadgeImg.setAttribute('src', './assets/parrot-badge.png');
