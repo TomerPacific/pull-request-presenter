@@ -2,6 +2,8 @@ const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2021-10
 
 const ENTER_KEY = "Enter";
 const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
+const AUTHOR_ASSOCIATION_KEY = "author_association";
+const AUTHOR_ASSOCIATION_OWNER = "OWNER";
 const pull_request_list = document.getElementById('pull-requests');
 const user_info = document.getElementById('user-info');
 const progressDiv = document.getElementById('progress');
@@ -75,7 +77,7 @@ function fetchUserDetails(userName) {
 
 			let pullRequest = pullRequests[index];
 
-			if (pullRequest["author_association"] == "OWNER") {
+			if (pullRequest[AUTHOR_ASSOCIATION_KEY] == AUTHOR_ASSOCIATION_OWNER) {
 				continue;
 			}
 			
