@@ -72,11 +72,10 @@ function fetchUserDetails(userName) {
 		setupUserDetails(userName, pullRequests[0]);
 
 		for (let index = 0; index < pullRequests.length; index++) {
+
 			let pullRequest = pullRequests[index];
 			let prUrl = pullRequest.html_url;
-			let prRepo = pullRequest.repository_url;
 			let prTitle = pullRequest.title;
-			let prBody = pullRequest.body;
 			
 			let liElem = document.createElement('li');
 			let anchroElem = document.createElement('a');
