@@ -1,4 +1,5 @@
-const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D2021-10-01+created%3A%3E%3D2021-10-31+author%3A';
+const CURRENT_YEAR = new Date().getFullYear();
+const base_url = 'https://api.github.com/search/issues?q=created%3A%3E%3D'+ CURRENT_YEAR + '-10-01+created%3A%3E%3D' + CURRENT_YEAR + '-10-31+author%3A';
 
 const ENTER_KEY = "Enter";
 const REQUIRED_AMOUNT_OF_PULL_REQUESTS = 4;
@@ -147,5 +148,9 @@ function setupUserDetails(userName, details) {
 function presentErrorMessage(error) {
 	user_info.innerHTML = "An error has occurred " + error.message;
 }
+
+
+let prHeader = document.getElementById("prHeader");
+prHeader.innerHTML = "Your Hacktoberfest " + CURRENT_YEAR + " PRs are : ";
 
 setupSearchButtonListener();
