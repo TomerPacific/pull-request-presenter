@@ -1,7 +1,7 @@
 :root {
-	--primary_first_color: #f4f0e1;
-	--primary_link_color: #B53A25;
-	--primary_secondary_color: #91A88C;
+	--primary_first_color: #170F1E;
+	--primary_link_color: #E5E1E6;
+	--primary_secondary_color: #af02da;
 	--black: #2B3531;
 }
 
@@ -16,7 +16,7 @@
 }
 
 #username::placeholder {
-	color: var(--black);
+	color: var(--primary_link_color);
 }
 
 #pull-request-data {
@@ -39,7 +39,7 @@
 }
 
 #pull-requests li a:hover, #user-info a:hover {
-	color: #677662;
+	color: #af02da;
 }
 
 .avatar {
@@ -55,7 +55,7 @@
 }
 
 #search, #user-info {
-	color: var(--black);
+	color: var(--primary_link_color);
 }
 
 #search:hover, #userName, #progress {
@@ -64,7 +64,7 @@
 
 #top-image {
 	margin-bottom: 2%;
-	width: 30%;
+	width: 50%;
 	height: 30%;
 }
 
