@@ -1,7 +1,7 @@
 :root {
 	--primary_first_color: #5A5AB5;
 	--primary_link_color: #F2F4F7;
-	--primary_secondary_color:  #5E577C;
+	--primary_secondary_color: #F2F4F7;
 	--black: #2B3531;
 }
 
@@ -39,7 +39,7 @@
 }
 
 #pull-requests li a:hover, #user-info a:hover {
-	color: #929205;
+	color: #C2C2FF;
 }
 
 .avatar {
